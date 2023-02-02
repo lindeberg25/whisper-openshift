@@ -1,5 +1,7 @@
 FROM registry.access.redhat.com/ubi8/python-39:latest
 
+USER root
+
 WORKDIR /deployment
 
 COPY app.py /deployment
@@ -12,5 +14,7 @@ RUN pip3 install -r requirements.txt
 RUN pip3 install "git+https://github.com/openai/whisper.git" 
 
 EXPOSE 5000
+
+USER 1001
 
 CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0"]
