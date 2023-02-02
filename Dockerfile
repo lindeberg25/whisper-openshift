@@ -12,7 +12,7 @@ ADD https://openaipublic.azureedge.net/main/whisper/models/345ae4da62f9b3d59415a
 RUN chmod 777 /deployment/medium.pt
 ################################################
 
-RUN yum install -y autoconf automake bzip2 bzip2-devel cmake freetype-devel gcc gcc-c++ git libtool make mercurial pkgconfig zlib-devel
+RUN yum install -y autoconf automake bzip2 bzip2-devel cmake freetype-devel gcc gcc-c++ git libtool make pkgconfig zlib-devel
 
 RUN mkdir /tmp/ffmpeg_sources
 
