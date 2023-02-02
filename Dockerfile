@@ -11,6 +11,7 @@ ADD https://openaipublic.azureedge.net/main/whisper/models/345ae4da62f9b3d59415a
 RUN chmod 777 /deployment/medium.pt
 
 RUN pip3 install -r requirements.txt
+RUN pip3 install --no-cache-dir ffmpeg-python
 RUN pip3 install "git+https://github.com/openai/whisper.git" 
 
 EXPOSE 5000
