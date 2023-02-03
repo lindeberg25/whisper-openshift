@@ -13,16 +13,17 @@ COPY requirements.txt /deployment
 
 ################################################
 
-RUN yum install dnf-plugins-core
+#RUN yum install dnf-plugins-core
 
-RUN dnf-config-manager --setopt=sslverify=false --save
-RUN dnf update -y
+#RUN dnf-config-manager --setopt=sslverify=false --save
+RUN yum update -y
 
+RUN echo "sslverify=false" >> /etc/yum.conf
 
-RUN dnf -y install https://download.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-RUN dnf config-manager --set-enabled powertools
-RUN dnf install -y https://download1.rpmfusion.org/free/el/rpmfusion-free-release-8.noarch.rpm
-RUN dnf install -y https://download1.rpmfusion.org/nonfree/el/rpmfusion-nonfree-release-8.noarch.rpm
+RUN yum -y install https://download.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+#RUN dnf config-manager --set-enabled powertools
+#RUN dnf install -y https://download1.rpmfusion.org/free/el/rpmfusion-free-release-8.noarch.rpm
+#RUN dnf install -y https://download1.rpmfusion.org/nonfree/el/rpmfusion-nonfree-release-8.noarch.rpm
 RUN dnf -y install ffmpeg
 RUN dnf -y install ffmpeg-devel
 
