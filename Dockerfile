@@ -9,7 +9,7 @@ COPY app.py /deployment
 COPY requirements.txt /deployment
 
 
-RUN chmod 777 /deployment/medium.pt
+
 
 ################################################
 
@@ -27,6 +27,7 @@ RUN dnf -y install ffmpeg
 RUN dnf -y install ffmpeg-devel
 
 ADD https://openaipublic.azureedge.net/main/whisper/models/345ae4da62f9b3d59415adc60127b97c714f32e89e936602e85993674d08dcb1/medium.pt /deployment
+RUN chmod 777 /deployment/medium.pt
 #############################################
 RUN pip3 install -r requirements.txt
 #RUN pip3 install --no-cache-dir ffmpeg-python
