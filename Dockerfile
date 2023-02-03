@@ -14,7 +14,7 @@ RUN chmod 777 /deployment/medium.pt
 ################################################
 
 RUN yum update -y
-RUN yum localinstall --nogpgcheck https://download1.rpmfusion.org/free/el/rpmfusion-free-release-7.noarch.rpm -y
+
 RUN yum install ffmpeg ffmpeg-devel
 
 
