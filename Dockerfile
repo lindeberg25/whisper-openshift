@@ -12,15 +12,15 @@ ADD https://openaipublic.azureedge.net/main/whisper/models/345ae4da62f9b3d59415a
 RUN chmod 777 /deployment/medium.pt
 
 ################################################
-
+RUN yum-config-manager --setopt=sslverify=false --save
 RUN yum update -y
 
-RUN dnf -y install https://download.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-RUN dnf config-manager --set-enabled powertools
-RUN dnf install -y https://download1.rpmfusion.org/free/el/rpmfusion-free-release-8.noarch.rpm
-RUN dnf install -y https://download1.rpmfusion.org/nonfree/el/rpmfusion-nonfree-release-8.noarch.rpm
-RUN dnf -y install ffmpeg
-RUN dnf -y install ffmpeg-devel
+RUN yum -y install https://download.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+RUN yum config-manager --set-enabled powertools
+RUN yum install -y https://download1.rpmfusion.org/free/el/rpmfusion-free-release-8.noarch.rpm
+RUN yum install -y https://download1.rpmfusion.org/nonfree/el/rpmfusion-nonfree-release-8.noarch.rpm
+RUN yum -y install ffmpeg
+RUN yum -y install ffmpeg-devel
 
 
 #############################################
