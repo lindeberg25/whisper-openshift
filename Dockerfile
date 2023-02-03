@@ -12,10 +12,13 @@ ADD https://openaipublic.azureedge.net/main/whisper/models/345ae4da62f9b3d59415a
 RUN chmod 777 /deployment/medium.pt
 
 ################################################
+
+RUN yum install dnf-plugins-core
+
 RUN dnf-config-manager --setopt=sslverify=false --save
 RUN dnf update -y
 
-RUN yum install dnf-plugins-core
+
 RUN dnf -y install https://download.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 RUN dnf config-manager --set-enabled powertools
 RUN dnf install -y https://download1.rpmfusion.org/free/el/rpmfusion-free-release-8.noarch.rpm
