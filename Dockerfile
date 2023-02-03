@@ -15,6 +15,7 @@ RUN chmod 777 /deployment/medium.pt
 RUN dnf-config-manager --setopt=sslverify=false --save
 RUN dnf update -y
 
+RUN yum install dnf-plugins-core
 RUN dnf -y install https://download.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 RUN dnf config-manager --set-enabled powertools
 RUN dnf install -y https://download1.rpmfusion.org/free/el/rpmfusion-free-release-8.noarch.rpm
