@@ -13,7 +13,7 @@ COPY requirements.txt /deployment
 
 RUN yum update -y
 
-RUN echo "sslverify=false" >> /etc/dnf.conf
+RUN echo "sslverify=false" >> /etc/yum.conf
 
 RUN dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 RUN dnf install -y https://download1.rpmfusion.org/free/el/rpmfusion-free-release-8.noarch.rpm
