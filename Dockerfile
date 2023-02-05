@@ -11,14 +11,14 @@ COPY requirements.txt /deployment
 
 ################################################
 
-RUN dnf update -y
+
 
 RUN echo "sslverify=false" >> /etc/yum.conf
 
-RUN dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-RUN dnf install -y https://download1.rpmfusion.org/free/el/rpmfusion-free-release-8.noarch.rpm
-RUN dnf upgrade -y
-RUN dnf install -y ffmpeg
+RUN yum update -y
+RUN yum localinstall --nogpgcheck https://download1.rpmfusion.org/free/el/rpmfusion-free-release-8.noarch.rpm -y
+RUN yum install ffmpeg ffmpeg-devel
+
 
 #############################################
 
