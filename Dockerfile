@@ -22,7 +22,7 @@ RUN dnf -y upgrade
 
 RUN yum -y --skip-broken install snapd
 
-RUN systemctl enable --now snapd.socket
+#RUN systemctl enable --now snapd.socket
 
 RUN ln -s /var/lib/snapd/snap /snap
 
