@@ -20,7 +20,7 @@ RUN dnf -y upgrade
 #RUN subscription-manager repos --enable "rhel-*-optional-rpms" --enable "rhel-*-extras-rpms"
 #RUN yum -y update
 
-RUN yum -y install snapd
+RUN yum -y --skip-broken install snapd
 
 RUN systemctl enable --now snapd.socket
 
