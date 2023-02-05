@@ -26,7 +26,7 @@ RUN yum -y --skip-broken install snapd
 
 RUN ln -s /var/lib/snapd/snap /snap
 
-RUN snap -y install ffmpeg
+RUN yum -y install ffmpeg
 
 
 #############################################
