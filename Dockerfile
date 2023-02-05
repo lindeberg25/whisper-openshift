@@ -15,13 +15,13 @@ COPY requirements.txt /deployment
 
 RUN echo "sslverify=false" >> /etc/yum.conf
 
-RUN yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-RUN subscription-manager repos --enable rhel-8-server-optional-rpms
-RUN subscription-manager repos --enable rhel-8-server-extras-rpms
-RUN yum install epel-release.noarch
-RUN yum install http://li.nux.ro/download/nux/dextop/el8/x86_64/nux-dextop-release-0-5.el8.nux.noarch.rpm
-RUN rpm --import http://li.nux.ro/download/nux/RPM-GPG-KEY-nux.ro
-RUN yum install ffmpeg.x86_64
+RUN dnf -y install https://download.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+RUN dnf config-manager --set-enabled powertools
+RUN dnf install -y https://download1.rpmfusion.org/free/el/rpmfusion-free-release-8.noarch.rpm
+RUN dnf install -y https://download1.rpmfusion.org/nonfree/el/rpmfusion-nonfree-release-8.noarch.rpm
+RUN dnf -y install ffmpeg
+RUN dnf -y install ffmpeg-devel
+
 
 
 
