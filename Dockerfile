@@ -17,8 +17,8 @@ RUN echo "sslverify=false" >> /etc/yum.conf
 RUN dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 RUN dnf -y upgrade
 
-RUN subscription-manager repos --enable "rhel-*-optional-rpms" --enable "rhel-*-extras-rpms"
-RUN yum -y update
+#RUN subscription-manager repos --enable "rhel-*-optional-rpms" --enable "rhel-*-extras-rpms"
+#RUN yum -y update
 
 RUN yum -y install snapd
 
