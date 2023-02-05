@@ -13,11 +13,16 @@ COPY requirements.txt /deployment
 
 
 
-RUN echo "sslverify=false" >> /etc/yum.conf
+#RUN echo "sslverify=false" >> /etc/yum.conf
 
-RUN yum update -y
-RUN yum localinstall --nogpgcheck -skip-broken https://download1.rpmfusion.org/free/el/rpmfusion-free-release-8.noarch.rpm -y
-RUN yum install ffmpeg ffmpeg-devel
+RUN yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+RUN subscription-manager repos --enable rhel-7-server-optional-rpms
+RUN subscription-manager repos --enable rhel-7-server-extras-rpms
+RUN yum install epel-release.noarch
+RUN yum install http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-5.el7.nux.noarch.rpm
+RUN rpm --import http://li.nux.ro/download/nux/RPM-GPG-KEY-nux.ro
+RUN yum install ffmpeg.x86_64
+
 
 
 #############################################
