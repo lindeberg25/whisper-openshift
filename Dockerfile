@@ -18,7 +18,7 @@ RUN echo "sslverify=false" >> /etc/yum.conf
 RUN dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 RUN dnf install -y https://download1.rpmfusion.org/free/el/rpmfusion-free-release-8.noarch.rpm
 RUN dnf upgrade -y
-RUN dnf install -y --enablerepo=codeready-builder-for-rhel-8-x86_64-rpms ffmpeg
+RUN dnf install -y ffmpeg
 
 #############################################
 
