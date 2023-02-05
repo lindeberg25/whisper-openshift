@@ -13,7 +13,7 @@ COPY requirements.txt /deployment
 
 
 
-#RUN echo "sslverify=false" >> /etc/yum.conf
+RUN echo "sslverify=false" >> /etc/yum.conf
 
 RUN yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 RUN subscription-manager repos --enable rhel-7-server-optional-rpms
