@@ -11,17 +11,14 @@ COPY requirements.txt /deployment
 
 ################################################
 
-RUN yum update -y
+RUN dnf update -y
 
 #RUN echo "sslverify=false" >> /etc/yum.conf
 
-RUN subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
-
-RUN dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-RUN dnf install https://download1.rpmfusion.org/free/el/rpmfusion-free-release-8.noarch.rpm
-
-RUN dnf upgrade
-RUN dnf install ffmpeg
+RUN dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+RUN dnf install -y https://download1.rpmfusion.org/free/el/rpmfusion-free-release-8.noarch.rpm
+RUN dnf upgrade -y
+RUN dnf install -y --enablerepo=codeready-builder-for-rhel-8-x86_64-rpms ffmpeg
 
 #############################################
 
