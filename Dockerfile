@@ -14,19 +14,19 @@ COPY requirements.txt /deployment
 
 RUN echo "sslverify=false" >> /etc/yum.conf
 
-RUN dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-RUN dnf upgrade
+RUN dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+RUN dnf -y upgrade
 
 RUN subscription-manager repos --enable "rhel-*-optional-rpms" --enable "rhel-*-extras-rpms"
-RUN yum update
+RUN yum -y update
 
-RUN yum install snapd
+RUN yum -y install snapd
 
 RUN systemctl enable --now snapd.socket
 
 RUN ln -s /var/lib/snapd/snap /snap
 
-RUN snap install ffmpeg
+RUN snap -y install ffmpeg
 
 
 #############################################
